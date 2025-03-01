@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>📱 مدیریت گوشی‌ها</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2331/2331970.png">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-tabs .nav-link {
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-tabs .nav-link.active {
+            background: white;
+            color: black;
+            border-radius: 10px;
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .btn {
+            background-color: #ffcc00;
+            color: black;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #e6b800;
+        }
+
+        h2 {
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">📱 مدیریت گوشی‌ها</h2>
+    <ul class="nav nav-tabs justify-content-center" id="phoneTab" role="tablist">
+        <li class="nav-item">
+            <button class="nav-link active" id="add-phone-tab" data-bs-toggle="tab" data-bs-target="#addPhoneTab" type="button" role="tab" aria-controls="addPhoneTab" aria-selected="true">📥 ثبت گوشی</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" id="search-phone-tab" data-bs-toggle="tab" data-bs-target="#searchPhoneTab" type="button" role="tab" aria-controls="searchPhoneTab" aria-selected="false">🔍 جستجوی گوشی</button>
+        </li>
+    </ul>
+
+    <div class="tab-content mt-3" id="phoneTabContent">
+        <div class="tab-pane fade show active pt-4" id="addPhoneTab" role="tabpanel">
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="name" class="form-label">نام گوشی</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="model" class="form-label">مدل</label>
+                    <input type="text" class="form-control" id="model" name="model" required>
+                </div>
+                <div class="mb-3">
+                    <label for="ram" class="form-label">رم</label>
+                    <input type="text" class="form-control" id="ram" name="ram" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cpu" class="form-label">سی پی یو</label>
+                    <input type="text" class="form-control" id="cpu" name="cpu" required>
+                </div>
+                <button type="submit" class="btn w-100" name="add_phone">✅ ثبت گوشی</button>
+            </form>
+        </div>
+
+        <div class="tab-pane fade pt-4" id="searchPhoneTab" role="tabpanel">
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="search_name" class="form-label">نام گوشی جهت جستجو:</label>
+                    <input type="text" class="form-control" id="search_name" name="search_name" required>
+                </div>
+                <button type="submit" class="btn w-100" name="search_phone">🔎 جستجو</button>
+            </form>
+            <div class="mt-4">
+                <h4>نتایج جستجو:</h4>
+                <?php echo $searchOutput; ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
